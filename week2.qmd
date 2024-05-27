@@ -29,3 +29,125 @@ Create a vector with strings in it
 char_vec <- c('daf', 'Adf', '12h', 'h3')
 sort(char_vec) #numbers, then uppercase, then lowercase
 ```
+
+## Create a matrix
+
+```{r}
+#basic call, default fills in matrix by column (left then right)
+my_mat1 <- matrix(c(1, 3, 4, -1, 5, 6), 
+                 nrow = 3, 
+                 ncol = 2)
+my_mat1
+
+#changes default to fill in by row (left to right)
+my_mat2 <- matrix(c(1, 3, 4, -1, 5, 6), 
+                 nrow = 3, 
+                 ncol = 2,
+                 byrow = TRUE)
+my_mat2
+
+#name the columns
+my_mat3 <- matrix(c(runif(10), 
+                    rnorm(10),
+                    rgamma(10, shape = 1, scale = 1)),
+                  ncol = 3,
+                  dimnames = list(1:10, c("Uniform", "Normal", "Gamma")))
+my_mat3
+```
+
+## Create an Array
+
+```{r}
+my_array <- array(1:24, dim = c(4, 2, 3))
+my_array
+
+#access your array
+my_array[1,1,1]
+```
+
+## Create a Data Frame
+
+data.frame(..., row.names = NULL, check.rows = FALSE, check.names = TRUE, fix.empty.names = TRUE, stringsAsFactors = FALSE)
+           
+```{r}
+x <- c("a", "b", "c", "d", "e", "f")
+y <- c(1, 3, 4, -1, 5, 6)
+z <- 10:15
+my_df <- data.frame(char = x, data1 = y, data2 =  z)
+my_df
+
+data.frame(number = 1:5, letter = c("a", "b", "c", "d", "e"))
+
+head(iris)
+iris[1:4, 2:4] #only 3 selected columns and rows 1-4
+
+df1 <- iris[1, ]
+str(df1)
+
+df2 <- iris[1, , drop = FALSE]
+str(df2)
+
+iris$Sepal.Length #access single column
+
+```
+
+Data frame video
+
+```{r}
+data(trees)
+trees
+str(trees)
+```
+
+subset a column
+```{r}
+trees$Height
+```
+
+Get attributes from the data frame
+
+```{r}
+attributes(trees)
+names(trees) #should be same output as colnames
+colnames(trees)
+
+colnames(trees)[2:3]
+```
+
+
+#Lists
+
+Investigating data frame from before
+```{r}
+is.list(trees)
+is.data.frame(trees)
+```
+
+Since this is a list, we can subset it as a list
+
+```{r}
+trees[1] #list
+trees[[1]] #turns in a vector
+```
+
+Look at linear model fit
+
+```{r}
+fit <- lm(Volume ~ Height + Girth, data = trees)
+```
+
+Look at structure but restrict info:
+
+```{r}
+str(fit, max.level = 1) #first level of structure
+```
+some helper functions exist
+
+```{r}
+fit$coefficients
+coef(fit)
+fit$residuals
+
+#no helper for rank: rank(fit)
+```
+

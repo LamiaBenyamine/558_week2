@@ -381,7 +381,7 @@ $row.names
 <pre><code>[1] "Height" "Volume"</code></pre>
 </div>
 </div>
-<p>#Lists</p>
+<p>##Lists</p>
 <p>Investigating data frame from before</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.list</span>(trees)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -517,6 +517,147 @@ $row.names
  8.48469518 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#no helper for rank: rank(fit)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>##Logical Statements</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>iris[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">"setosa"</span> <span class="sc">&amp;</span> iris<span class="sc">$</span>Petal.Width <span class="sc">==</span> <span class="fl">0.2</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1           5.1         3.5          1.4         0.2  setosa
+2           4.9         3.0          1.4         0.2  setosa
+3           4.7         3.2          1.3         0.2  setosa
+4           4.6         3.1          1.5         0.2  setosa
+5           5.0         3.6          1.4         0.2  setosa
+8           5.0         3.4          1.5         0.2  setosa
+9           4.4         2.9          1.4         0.2  setosa
+11          5.4         3.7          1.5         0.2  setosa
+12          4.8         3.4          1.6         0.2  setosa
+15          5.8         4.0          1.2         0.2  setosa
+21          5.4         3.4          1.7         0.2  setosa
+23          4.6         3.6          1.0         0.2  setosa
+25          4.8         3.4          1.9         0.2  setosa
+26          5.0         3.0          1.6         0.2  setosa
+28          5.2         3.5          1.5         0.2  setosa
+29          5.2         3.4          1.4         0.2  setosa
+30          4.7         3.2          1.6         0.2  setosa
+31          4.8         3.1          1.6         0.2  setosa
+34          5.5         4.2          1.4         0.2  setosa
+35          4.9         3.1          1.5         0.2  setosa
+36          5.0         3.2          1.2         0.2  setosa
+37          5.5         3.5          1.3         0.2  setosa
+39          4.4         3.0          1.3         0.2  setosa
+40          5.1         3.4          1.5         0.2  setosa
+43          4.4         3.2          1.3         0.2  setosa
+47          5.1         3.8          1.6         0.2  setosa
+48          4.6         3.2          1.4         0.2  setosa
+49          5.3         3.7          1.5         0.2  setosa
+50          5.0         3.3          1.4         0.2  setosa</code></pre>
+</div>
+</div>
+<p>#If/then/else</p>
+<p>Fizz buzz challenge - take in a number - if it is divisible by 3 return fizz - if it divisiabile by 5 return buzz - if it divisible by 15 return fizz buzz</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>((number <span class="sc">%%</span> <span class="dv">15</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"fizz buzz"</span>)</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ((number <span class="sc">%%</span> <span class="dv">5</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"buzz"</span>)</span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ((number <span class="sc">%%</span> <span class="dv">3</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"fizz"</span>)</span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"whoops?"</span>)</span>
+<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "whoops?"</code></pre>
+</div>
+</div>
+<p>##Loops</p>
+<p>Wrap the fizz buzz code into a loop to check for multiple values. And add it into a data frame</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>summary_fb <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">num =</span>  <span class="sc">-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>)</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>summary_fb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   num
+1   -1
+2    0
+3    1
+4    2
+5    3
+6    4
+7    5
+8    6
+9    7
+10   8
+11   9
+12  10
+13  11
+14  12
+15  13
+16  14
+17  15
+18  16
+19  17
+20  18
+21  19
+22  20
+23  21
+24  22
+25  23
+26  24
+27  25
+28  26
+29  27
+30  28
+31  29
+32  30</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>){</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span>((i <span class="sc">%%</span> <span class="dv">15</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>             summary_fb[i,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"fizz buzz"</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>            } <span class="cf">else</span> <span class="cf">if</span> ((i <span class="sc">%%</span> <span class="dv">5</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>              summary_fb[i,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"buzz"</span></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>            } <span class="cf">else</span> <span class="cf">if</span> ((i <span class="sc">%%</span> <span class="dv">3</span>) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>              summary_fb[i,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"fizz"</span></span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>            } <span class="cf">else</span> {</span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>              summary_fb[i,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"whoops?"</span></span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a>summary_fb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   num        V2
+1   -1   whoops?
+2    0   whoops?
+3    1      fizz
+4    2   whoops?
+5    3      buzz
+6    4      fizz
+7    5   whoops?
+8    6   whoops?
+9    7      fizz
+10   8      buzz
+11   9   whoops?
+12  10      fizz
+13  11   whoops?
+14  12   whoops?
+15  13 fizz buzz
+16  14   whoops?
+17  15   whoops?
+18  16      fizz
+19  17   whoops?
+20  18      buzz
+21  19      fizz
+22  20   whoops?
+23  21   whoops?
+24  22      fizz
+25  23      buzz
+26  24   whoops?
+27  25      fizz
+28  26   whoops?
+29  27   whoops?
+30  28 fizz buzz
+31  29   whoops?
+32  30   whoops?</code></pre>
+</div>
 </div>
 </section>
 

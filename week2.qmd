@@ -115,7 +115,7 @@ colnames(trees)[2:3]
 ```
 
 
-#Lists
+##Lists
 
 Investigating data frame from before
 ```{r}
@@ -150,4 +150,116 @@ fit$residuals
 
 #no helper for rank: rank(fit)
 ```
+
+##Logical Statements
+
+```{r}
+iris[iris$Species == "setosa" & iris$Petal.Width == 0.2, ]
+```
+
+
+
+#If/then/else
+
+Fizz buzz challenge
+- take in a number
+- if it is divisible by 3 return fizz
+- if it divisiabile by 5 return buzz
+- if it divisible by 15 return fizz buzz
+```{r}
+number <- 2
+if((number %% 15) == 0) {
+  print("fizz buzz")
+} else if ((number %% 5) == 0) {
+  print("buzz")
+} else if ((number %% 3) == 0) {
+  print("fizz")
+} else {
+  print("whoops?")
+}
+```
+
+##Loops
+
+Wrap the fizz buzz code into a loop to check for multiple values. And add it into a data frame
+
+```{r}
+summary_fb <- data.frame(num =  -1:30)
+summary_fb
+for(i in -1:30){
+            if((i %% 15) == 0) {
+             summary_fb[i,2] <- "fizz buzz"
+            } else if ((i %% 5) == 0) {
+              summary_fb[i,2] <- "buzz"
+            } else if ((i %% 3) == 0) {
+              summary_fb[i,2] <- "fizz"
+            } else {
+              summary_fb[i,2] <- "whoops?"
+  }
+}
+summary_fb
+```
+
+##vectorized functions
+
+```{r}
+ifelse(airquality$Wind >= 15, "HighWind",
+          ifelse(airquality$Wind >= 10, "Windy",
+                 ifelse(airquality$Wind >= 6, "LightWind", 
+                        ifelse(airquality$Wind >= 0, "Calm", "Error"))))
+```
+
+## Writing Functions
+
+generic syntax
+
+nameOfFunction <- function(input1, input2, ...) {
+  #code
+  #return something with return()
+  #or returns last value
+}
+
+```{r}
+standardize <- function(vector){
+  return((vector - mean(vector))/ sd(vector))
+}
+```
+
+Create a dataset and apply the function
+```{r}
+set.seed(10)
+data <- runif(15)
+data
+
+result <- standardize(data)
+result
+
+#check for mean 0 and sd = 1
+round(mean(result), digits = 0)
+sd(result)
+```
+
+update function to automatically return mean & SD and default values
+
+```{r}
+standardize <- function(vector, center = TRUE, scale = TRUE){
+  mean <- round(mean(vector))
+  stdev <- sd(vector)
+  if (center) {
+    vector <- vector - mean
+    }
+  if (scale) {
+    vector <- vector / stdev
+    }
+  return(list(result = vector, mean = mean, sd = stdev))
+  }
+```
+
+Apply it
+```{r}
+result <- standardize(data)
+result
+result[[2]] # only mean
+```
+
 
